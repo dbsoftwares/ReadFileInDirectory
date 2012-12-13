@@ -24,15 +24,6 @@ public class ReadFileFromDir {
         String dirPath = input.nextLine();
         File fileToRead = new File(dirPath);
 
-        try {
-            Scanner inputFile = new Scanner(fileToRead);
-            while (inputFile.hasNextLine()) {
-                String line = inputFile.nextLine();
-                System.out.println(line);
-            }
-            inputFile.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        
     }
 }
