@@ -1,8 +1,15 @@
 package org.dbsoftwares.readfilefromdir;
 
+import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,6 +31,22 @@ public class ReadFileFromDir {
         String dirPath = input.nextLine();
         File fileToRead = new File(dirPath);
 
-        
+        try{
+            // Open the file that is the first command line parameter
+            FileInputStream fstream;
+            fstream = new FileInputStream(dirPath);
+            DataInputStream in = new DataInputStream(fstream);
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            String strLine;
+            //Read File Line By Line
+            while ((strLine = br.readLine()) != null) {
+                // Print the content on the console
+                System.out.println(strLine);
+            }
+        } catch (FileNotFoundException ex) {
+                Logger.getLogger(ReadFileFromDir.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex){
+                Logger.getLogger(ReadFileFromDir.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
