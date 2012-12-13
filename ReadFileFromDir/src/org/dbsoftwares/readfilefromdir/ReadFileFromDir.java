@@ -48,5 +48,8 @@ public class ReadFileFromDir {
         } catch (IOException ex){
                 Logger.getLogger(ReadFileFromDir.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        AlternateRead altRead = new AlternateRead();
+        altRead.read(dirPath);
     }
 }
